@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 
 namespace KaguyaCode.UI
+// 0.1.1
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class KaguyaTimeOfDayUIButton : UdonSharpBehaviour
