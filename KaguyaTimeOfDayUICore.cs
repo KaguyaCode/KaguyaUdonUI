@@ -4,6 +4,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 
 namespace KaguyaCode.UI
+// 0.1.1
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class KaguyaTimeOfDayUICore : UdonSharpBehaviour
