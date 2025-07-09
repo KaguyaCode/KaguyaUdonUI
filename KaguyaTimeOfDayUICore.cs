@@ -45,6 +45,17 @@ namespace KaguyaCode.UI
                 nightButton.SetSelected(selectedIndex == 3);
         }
 
+        public void ClearAllSelection()
+        {
+            selectedIndex = -1;
+            UpdateVisuals();
+
+            if (!Networking.IsOwner(gameObject))
+                Networking.SetOwner(localPlayer, gameObject);
+    
+             RequestSerialization();
+        }
+
         public void SelectMorning()
         {
             SetActiveButtonTime(0);
