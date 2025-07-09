@@ -3,7 +3,6 @@ using UnityEngine;
 using TMPro;
 
 namespace KaguyaCode.UI
-// 0.1.1
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class KaguyaTimeOfDayUIButton : UdonSharpBehaviour
@@ -19,9 +18,9 @@ namespace KaguyaCode.UI
         // Default Colors and Scaling
         [Header("Colors and Scaling")]
         [Tooltip("Color when the button is not selected")]
-        [SerializeField] private Color normalColor = Color.gray;
+        [SerializeField] private Color normalColor = Color.gray; // <---- default color
         [Tooltip("Color when the button is selected")]
-        [SerializeField] private Color selectedColor = Color.white;
+        [SerializeField] private Color selectedColor = Color.white; // <---- selected color
         [Tooltip("Size increase for button when selected")]
         [SerializeField] private float selectedSize = 1.05f;
         private Vector3 originalScale;
@@ -37,7 +36,7 @@ namespace KaguyaCode.UI
                     originalScale = textRectTransform.localScale;
                 }
             }
-            SetSelected(false);
+            SetSelected(false); // makes no buttons selected by default
         }
 
         public void SetSelected(bool isSelected)
@@ -47,7 +46,7 @@ namespace KaguyaCode.UI
                 // color
                 if (isSelected)
                 {
-                    buttonText.color = selectedColor;
+                    buttonText.color = selectedColor; // could probably do other stuff here
                 }
                 else
                 {
