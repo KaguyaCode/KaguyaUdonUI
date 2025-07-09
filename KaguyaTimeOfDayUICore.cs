@@ -1,10 +1,11 @@
 using UdonSharp;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using VRC.SDKBase;
 using VRC.Udon;
+using KaguyaCode.UI;
 
 namespace KaguyaCode.UI
-// 0.1.1
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class KaguyaTimeOfDayUICore : UdonSharpBehaviour
@@ -14,6 +15,10 @@ namespace KaguyaCode.UI
         [SerializeField] private KaguyaTimeOfDayUIButton dayButton;
         [SerializeField] private KaguyaTimeOfDayUIButton sunsetButton;
         [SerializeField] private KaguyaTimeOfDayUIButton nightButton;
+
+        // process for adding more buttons is to add them here and below at (39) for UpdateVisuals()
+        // and then add the methods for selecting them below at (82)
+        // default doesnt need a button but we could add it if we want
         
         [Header("Put Object with Audiosource Here")]
         [Tooltip("This is local - Plays whenever a button is selected or deselected")]
@@ -45,7 +50,7 @@ namespace KaguyaCode.UI
                 nightButton.SetSelected(selectedIndex == 3);
         }
 
-        public void ClearAllSelection()
+        public void ClearAllSelection() // this is used for the "reset" or default button
         {
             selectedIndex = -1;
             UpdateVisuals();
